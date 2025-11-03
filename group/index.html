@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Our Team Portfolio</title>
+
+  <!-- Google Font (same look as before) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1: #0f172a;
+      --bg2: #0f3b6a;
+      --card: rgba(255,255,255,0.06);
+      --accent: #7dd3fc;
+      --muted: #cbd5e1;
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(135deg,var(--bg1),var(--bg2));
+      color: #e6eef8;
+      -webkit-font-smoothing:antialiased;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px;
+    }
+    .page {
+      width:100%;
+      max-width:1100px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;
+      padding:28px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      backdrop-filter: blur(6px);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    header {
+      display:flex;
+      gap:18px;
+      align-items:center;
+      margin-bottom:20px;
+    }
+
+    /* Updated logo section to show image instead of text */
+    .logo {
+      width:78px;
+      height:78px;
+      border-radius:12px;
+      overflow:hidden;
+      background: rgba(255,255,255,0.05);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.5);
+      flex-shrink:0;
+    }
+    .logo img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      border-radius:12px;
+    }
+
+    h1{
+      margin:0;
+      font-size:24px;
+      color: #f8fafc;
+      letter-spacing: -0.4px;
+    }
+    p.lead{
+      margin:6px 0 0;
+      color: var(--muted);
+      font-size:14px;
+    }
+    main{
+      display:grid;
+      grid-template-columns: 1fr 340px;
+      gap:22px;
+      margin-top:20px;
+    }
+    .members {
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+      gap:18px;
+    }
+
+    /* make the whole card clickable and keep same look */
+    a.card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+      border-radius:12px;
+      padding:14px;
+      border:1px solid rgba(255,255,255,0.03);
+      display:flex;
+      gap:12px;
+      align-items:center;
+      transform: translateY(0);
+      transition: transform .28s ease, box-shadow .28s ease;
+      color:inherit;
+      text-decoration:none;
+    }
+    a.card:hover{
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    }
+
+    .avatar{
+      width:64px;
+      height:64px;
+      border-radius:50%;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:3px solid rgba(255,255,255,0.06);
+      transition: transform .28s ease, box-shadow .28s ease;
+      flex-shrink:0;
+      background:var(--glass);
+    }
+    .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .info{ flex:1; }
+    .name{ margin:0; font-weight:700; font-size:15px; color:#fff; }
+    .role{ margin:3px 0 0; font-size:13px; color:var(--muted); }
+
+    .panel{
+      border-radius:12px;
+      padding:12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .group-pic{
+      width:100%;
+      height:200px;
+      border-radius:10px;
+      overflow:hidden;
+      margin-bottom:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(90deg, rgba(125,211,252,0.04), rgba(124,58,237,0.03));
+    }
+    .group-pic img{ width:100%; height:100%; object-fit:cover; }
+
+    @keyframes floaty {
+      0%{ transform: translateY(0px) }
+      50%{ transform: translateY(-6px) }
+      100%{ transform: translateY(0px) }
+    }
+    /* still animate every odd card as before */
+    a.card:nth-child(odd){ animation: floaty 6s ease-in-out infinite; opacity:.98 }
+
+    @media (max-width:880px){
+      main{ grid-template-columns: 1fr; }
+      .group-pic{ height:180px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page" role="main">
+    <header>
+      <div class="logo">
+        <img src="../assets/logo.jpg" alt="Group 8 Logo">
+      </div>
+      <div>
+        <h1>Welcome to Our Group Portfolio</h1>
+        <p class="lead">Hello! We are <strong>Group 8 from IT-2G</strong>. This webpage showcases our members and what each of us contributes to our team.</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- Members grid: each card links to that member's individual page in ../members/ -->
+      <section class="members" aria-label="Meet Our Members">
+        <a href="../members/kim.html" class="card">
+          <div class="avatar">
+            <img src="../assets/images/member1.jpg" alt="Photo of Kim, Team Lead">
+          </div>
+          <div class="info">
+            <p class="name">Kimberly A. Siador</p>
+            <p class="role">Team Leader</p>
+          </div>
+        </a>
+
+        <a href="../members/rose.html" class="card">
+          <div class="avatar">
+            <img src="../assets/images/member2.jpg" alt="Photo of Rose">
+          </div>
+          <div class="info">
+            <p class="name">Rose Jane A. Cabingas</p>
+            <p class="role">Member</p>
+          </div>
+        </a>
+
+        <a href="../members/rheina.html" class="card">
+          <div class="avatar">
+            <img src="../assets/images/member3.jpg" alt="Photo of Rheina">
+          </div>
+          <div class="info">
+            <p class="name">Rheina Rhodericka Abella</p>
+            <p class="role">Member</p>
+          </div>
+        </a>
+
+        <a href="../members/alleah.html" class="card">
+          <div class="avatar">
+            <img src="../assets/images/member4.jpg" alt="Photo of Alleah">
+          </div>
+          <div class="info">
+            <p class="name">Alleah Raine M. Tabajonda</p>
+            <p class="role">Member</p>
+          </div>
+        </a>
+
+        <a href="../members/grace.html" class="card">
+          <div class="avatar">
+            <img src="../assets/images/member5.jpg" alt="Photo of Grace">
+          </div>
+          <div class="info">
+            <p class="name">Mary Grace A. Pagon</p>
+            <p class="role">Member</p>
+          </div>
+        </a>
+      </section>
+
+      <!-- Right column: group picture + video (kept exactly, no View button) -->
+      <aside class="panel" aria-label="Group photo and highlights">
+        <div class="group-pic" role="img" aria-label="Group photo of Group 8">
+          <img src="../assets/images/group.jpg" alt="Group 8 group photo showing members of the team">
+        </div>
+
+        <p style="color:var(--muted); font-size:14px; margin:0 0 8px;">
+          Click any member card to view their individual portfolio.
+        </p>
+
+        <div>
+          <video controls width="100%" height="140" style="border-radius:8px; display:block;" poster="../assets/images/video-poster.jpg">
+            <source src="../assets/videos/intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </aside>
+    </main>
+  </div>
+</body>
+</html>
